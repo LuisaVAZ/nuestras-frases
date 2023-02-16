@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Hola chicas</h1>
 @foreach ($phrases as $phrase)
 <p>  {{$phrase->phrase}}</p>
 @endforeach

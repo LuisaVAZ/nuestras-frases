@@ -16,7 +16,7 @@ class PhrasesController extends Controller
     {
         
             $phrases=Phrases::all();
-            return view('home', (compact('phrases')));
+            return response(view('home', (compact('phrases'))));
             
     }
 

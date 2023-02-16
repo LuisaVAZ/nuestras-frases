@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\DB;
 
-class urphrasesSeeder extends Seeder
+use DB;
+
+class OurphrasesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
