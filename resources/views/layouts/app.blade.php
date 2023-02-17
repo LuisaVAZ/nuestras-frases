@@ -76,11 +76,6 @@
             @yield('content')
         </main>
     </div>
-    <h1>Frases inspiradoras</h1>
-    @foreach ($phrases as $phrase)
-    <img src="{{$phrase->image}}" alt="">
-    <p>  {{$phrase->phrase}}</p>
-    <p>  {{$phrase->author}}</p>
-    @endforeach
+   
 </body>
 </html>
