@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <h1>Frases inspiradoras</h1>
     @foreach ($phrases as $phrase)
     <img src="{{$phrase->image}}" alt="">
