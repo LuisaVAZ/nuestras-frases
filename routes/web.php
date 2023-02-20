@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\PhraseController;
+//use App\Http\Controllers\PhrasesController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PhrasesController;
+//use App\Http\Controllers\PhrasesController;
+
 
 
 /*
@@ -20,4 +23,15 @@ use App\Http\Controllers\PhrasesController;
 
 // });
 
-Route::get('/', [PhrasesController::class,'index'])->name('home');
+
+//Auth::routes();
+
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('phrase', PhraseController::class);
+
+Route::get('/phrases.index', [PhraseController::class, 'index']);
