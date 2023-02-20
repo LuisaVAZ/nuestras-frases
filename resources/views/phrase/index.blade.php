@@ -41,7 +41,9 @@
 										<th>Autor</th>
 										<th>Frase</th>
 										<th>Imagen</th>
-										{{-- <th>Is Onslider</th> --}}
+                                        @can('admin-access')
+										<th>Slider (1-sí, 0-no)</th>
+                                        @endcan
 
                                         <th></th>
                                     </tr>
@@ -54,8 +56,9 @@
 											<td>{{ $phrase->author }}</td>
 											<td>{{ $phrase->phrase }}</td>
 											<td>{{ $phrase->image }}</td>
-											{{-- <td>{{ $phrase->is_onslider }}</td> --}}
-                                            
+                                            @can('admin-access')
+											<td>{{ $phrase->is_onslider }}</td>
+                                            @endcan
                                             @can('admin-access')
                                             <td>
                                                 <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">

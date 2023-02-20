@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Phrase
+    Editar Frase
 @endsection
 
 @section('content')
