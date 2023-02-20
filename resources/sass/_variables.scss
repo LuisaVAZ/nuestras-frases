@@ -23,6 +23,12 @@ height: $height;
     display: flex;
     justify-content: center;
 }
+
+.form-inline {
+    display: flex;
+    margin-left: 20rem;
+    justify-content: center;
+}
 .explanation {
     background-color: white;
     height: 4rem;

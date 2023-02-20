@@ -18,7 +18,7 @@ use App\Models\Phrase;
              
         $author = $request->get('buscarpor');
 
-        $phrase = phrase::where('author','like','Nuevo')->paginate(5);
+        $phrases = phrases::where('author','like','Nuevo');
         
         return view('home', (compact('phrase')));
     }
