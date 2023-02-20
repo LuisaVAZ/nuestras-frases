@@ -18,13 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-     return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
 
-//Route::get('/', [PhrasesController::class,'index'])->name('home');
+// });
 
-Route::resource('phrase', PhraseController::class);
+
+//Auth::routes();
+
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('phrase', PhraseController::class);
