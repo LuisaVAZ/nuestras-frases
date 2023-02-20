@@ -40,8 +40,8 @@
     </form>
   </nav>
   <div>
-        @foreach ($phrases as $phrase)
-        <p>  {{$phrase->phrase}}</p>
+        @foreach ($phrase as $phrase)
+        <p> {{$phrase->phrase}}</p>
         @endforeach
   </div>
 <div id="explanation-container">

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\Phrases;
+use App\Models\Phrase;
 
  class SearchController extends Controller
  {
@@ -18,7 +18,7 @@ use App\Models\Phrases;
              
         $author = $request->get('buscarpor');
 
-        $phrase = phrases::where('author','like','Nuevo')->paginate(5);
+        $phrase = phrase::where('author','like','Nuevo')->paginate(5);
         
         return view('home', (compact('phrase')));
     }

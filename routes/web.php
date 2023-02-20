@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PhraseController;
+
+use App\Http\Controllers\SearchController;
 //use App\Http\Controllers\PhrasesController;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\PhrasesController;
