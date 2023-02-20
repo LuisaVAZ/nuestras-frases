@@ -10,7 +10,12 @@ $white: #ffffff ;
 $height: 1.2rem; 
 
 $gradient: linear-gradient(90deg, rgba($purple, .15), rgba($white, 1));
-
+body{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    height: 100%;
+}
 svg {
 height: $height;
 }
@@ -35,7 +40,18 @@ height: $height;
 
 .carousel-inner {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    background-color:#C3A0E5;
+    padding: 2rem;
+    margin-right:1rem;
+    border-radius: 20px;
+    width: 90%;
+    
+}
+
+.img {
+    height: 8rem;
+    width: auto;
 }
 .button {
     display: flex;

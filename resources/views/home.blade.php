@@ -47,7 +47,7 @@
 
       @foreach($phrases as $phrase)
       <div class="carousel-item active">
-        <img src="{{$phrase->image}}" class="d-block w-50" alt="landscape">
+        <img src="{{$phrase->image}}" class="img" alt="phrase">
       </div>
       @endforeach
 
