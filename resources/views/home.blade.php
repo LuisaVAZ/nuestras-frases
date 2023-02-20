@@ -31,6 +31,19 @@
         </div>
     </div>
 </div>
+<nav class="navbar navbar-light float-right">
+    <form class="form-inline">
+  
+      <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por Autor" aria-label="Search">
+  
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  </nav>
+  <div>
+        @foreach ($phrases as $phrase)
+        <p>  {{$phrase->phrase}}</p>
+        @endforeach
+  </div>
 <div id="explanation-container">
     <div class="explanation"> ¡Que nada te pare! Aquí tienes frases con palabras de apoyo y de ánimo de lo más especiales, que te motivarán y te inspirarán siempre que lo necesites en tu vida. ¡Guárdalas dando click a la estrella para poder recordarlas luego!</div>
 </div>
