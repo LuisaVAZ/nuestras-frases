@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Phrase;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $phrases = Phrase::where('is_onslider', 1)->get();
+       
+        return view('home', compact('phrases'));
+        //return view('home');
     }
+
+
 }
