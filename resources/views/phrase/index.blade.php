@@ -19,7 +19,7 @@
                             @can('admin-access')                            
                              <div class="float-right">
                                 <a href="{{ route('phrase.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva') }}
                                 </a>
                               </div>
                             @endcan  
@@ -41,7 +41,9 @@
 										<th>Autor</th>
 										<th>Frase</th>
 										<th>Imagen</th>
-										{{-- <th>Is Onslider</th> --}}
+                                        @can('admin-access')
+										<th>Slider (1-sí, 0-no)</th>
+                                        @endcan
 
                                         <th></th>
                                     </tr>
@@ -54,16 +56,17 @@
 											<td>{{ $phrase->author }}</td>
 											<td>{{ $phrase->phrase }}</td>
 											<td>{{ $phrase->image }}</td>
-											{{-- <td>{{ $phrase->is_onslider }}</td> --}}
-                                            
+                                            @can('admin-access')
+											<td>{{ $phrase->is_onslider }}</td>
+                                            @endcan
                                             @can('admin-access')
                                             <td>
                                                 <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('phrase.edit',$phrase->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('phrase.edit',$phrase->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                             @endcan
