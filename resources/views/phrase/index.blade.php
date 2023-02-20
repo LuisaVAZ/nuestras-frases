@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Phrase
+    Frase
 @endsection
 
 @section('content')
@@ -13,14 +13,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Phrase') }}
+                                {{ __('Frases') }}
                             </span>
 
+                            @can('admin-access')                            
                              <div class="float-right">
                                 <a href="{{ route('phrase.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva Frase') }}
                                 </a>
                               </div>
+                            @endcan  
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -34,12 +36,14 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        {{-- <th>No</th> --}}
                                         
-										<th>Author</th>
-										<th>Phrase</th>
-										<th>Image</th>
-										<th>Is Onslider</th>
+										<th>Autor</th>
+										<th>Frase</th>
+										<th>Imagen</th>
+                                        @can('admin-access')
+										<th>Slider (1-sí, 0-no)</th>
+                                        @endcan
 
                                         <th></th>
                                     </tr>
@@ -47,22 +51,25 @@
                                 <tbody>
                                     @foreach ($phrases as $phrase)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            {{-- <td>{{ ++$i }}</td> --}}
                                             
 											<td>{{ $phrase->author }}</td>
 											<td>{{ $phrase->phrase }}</td>
 											<td>{{ $phrase->image }}</td>
+                                            @can('admin-access')
 											<td>{{ $phrase->is_onslider }}</td>
-
+                                            @endcan
+                                            @can('admin-access')
                                             <td>
                                                 <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('phrase.edit',$phrase->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('phrase.edit',$phrase->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
+                                            @endcan
                                         </tr>
                                     @endforeach
                                 </tbody>

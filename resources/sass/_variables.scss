@@ -10,7 +10,12 @@ $white: #ffffff ;
 $height: 1.2rem; 
 
 $gradient: linear-gradient(90deg, rgba($purple, .15), rgba($white, 1));
-
+body{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    height: 100%;
+}
 svg {
 height: $height;
 }
@@ -25,9 +30,46 @@ height: $height;
 }
 .explanation {
     background-color: white;
-    height: 4rem;
+    height: auto;
     width: 70%;
     border-radius: 30px;
     padding: 1rem; 
-    margin-top: 2rem; 
+    margin: 2rem; 
+    box-shadow: 5px 5px #d9d9d9;
  }
+
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    background-color:#C3A0E5;
+    padding: 2rem;
+    margin-right:1rem;
+    border-radius: 20px;
+    width: 90%;
+}
+
+
+.carousel-item ::after{
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    height: 8rem;
+    width: auto;
+    border-radius: 20px;
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+#landing-button 
+{
+    background-color:#E7CEF6;
+    border-style: none;
+    border-radius: 20px;
+    margin:2rem;
+    padding: 2rem; 
+    font-weight: bold;
+    box-shadow: 5px 10px #d9d9d9;
+}
