@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Phrase;
 use Illuminate\Http\Request;
 
+
 /**
  * Class PhraseController
  * @package App\Http\Controllers
@@ -16,12 +17,29 @@ class PhraseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+         /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
     public function index()
     {
-        $phrases = Phrase::paginate();
+        $phrases = Phrase::paginate(3);
 
-        return view('phrase.index', compact('phrases'))
-            ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+        return view('phrase.index', compact('phrases'));
+          //  ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
     }
 
     /**
