@@ -61,7 +61,9 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
+<div class="button"><a href="{{ URL::route('phrase.index'); }}">
+  <button id="landing-button">VER TODAS LAS FRASES</button> </a>
+</div>
 @endsection
 
 </body>
