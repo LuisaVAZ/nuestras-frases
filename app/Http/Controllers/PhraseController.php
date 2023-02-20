@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Phrase;
 use Illuminate\Http\Request;
 
+
 /**
  * Class PhraseController
  * @package App\Http\Controllers
@@ -18,7 +19,7 @@ class PhraseController extends Controller
      */
     public function index()
     {
-        $phrases = Phrase::paginate();
+        $phrases = Phrase::paginate(3);
 
         return view('phrase.index', compact('phrases'))
             ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());

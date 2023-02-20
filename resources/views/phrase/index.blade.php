@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $phrases->links() !!}
+                {!! $phrases->links('pagination::bootstrap-4') !!}
             </div>
         </div>
     </div>

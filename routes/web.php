@@ -33,3 +33,5 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('phrase', PhraseController::class);
+
+Route::get('/phrases.index', [PhraseController::class, 'index']);
