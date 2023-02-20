@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach ($phrases as $phrase)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            {{-- <td>{{ ++$i }}</td> --}}
                                             
 											<td>{{ $phrase->author }}</td>
 											<td>{{ $phrase->phrase }}</td>
