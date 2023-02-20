@@ -13,14 +13,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Frase') }}
+                                {{ __('Frases') }}
                             </span>
 
+                            @can('admin-access')                            
                              <div class="float-right">
                                 <a href="{{ route('phrase.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva Frase') }}
                                 </a>
                               </div>
+                            @endcan  
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -34,11 +36,12 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                            
+                                        {{-- <th>No</th> --}}
+                                        
 										<th>Autor</th>
 										<th>Frase</th>
 										<th>Imagen</th>
-										<th>Slider (1-sí, 0-no)</th>
+										{{-- <th>Is Onslider</th> --}}
 
                                         <th></th>
                                     </tr>
@@ -51,8 +54,9 @@
 											<td>{{ $phrase->author }}</td>
 											<td>{{ $phrase->phrase }}</td>
 											<td>{{ $phrase->image }}</td>
-											<td>{{ $phrase->is_onslider }}</td>
-
+											{{-- <td>{{ $phrase->is_onslider }}</td> --}}
+                                            
+                                            @can('admin-access')
                                             <td>
                                                 <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
@@ -62,6 +66,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
+                                            @endcan
                                         </tr>
                                     @endforeach
                                 </tbody>
