@@ -11,29 +11,29 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Phrase</span>
+                            <span class="card-title">Mostrar Frase</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('phrase.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('phrase.index') }}"> Volver</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Author:</strong>
+                            <strong>Autor:</strong>
                             {{ $phrase->author }}
                         </div>
                         <div class="form-group">
-                            <strong>Phrase:</strong>
+                            <strong>Frase:</strong>
                             {{ $phrase->phrase }}
                         </div>
                         <div class="form-group">
-                            <strong>Image:</strong>
+                            <strong>Imagen:</strong>
                             {{ $phrase->image }}
                         </div>
                         <div class="form-group">
-                            <strong>Is Onslider:</strong>
+                            <strong>Slider (1-yes, 0-no):</strong>
                             {{ $phrase->is_onslider }}
                         </div>
 

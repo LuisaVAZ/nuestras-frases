@@ -46,12 +46,18 @@ height: $height;
     margin-right:1rem;
     border-radius: 20px;
     width: 90%;
-    
+}
+
+
+.carousel-item ::after{
+    display: flex;
+    justify-content: center;
 }
 
 .img {
     height: 8rem;
     width: auto;
+    border-radius: 20px;
 }
 .button {
     display: flex;
