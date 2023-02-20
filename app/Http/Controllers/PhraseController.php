@@ -38,8 +38,9 @@ class PhraseController extends Controller
     {
         $phrases = Phrase::paginate(3);
 
-        return view('phrase.index', compact('phrases'));
-          //  ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+        return view('phrase.index', compact('phrases'))
+            ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+
     }
 
     /**
