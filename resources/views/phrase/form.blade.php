@@ -23,7 +23,12 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    <div style="width: 50%; overflow: hidden; padding-top: 1rem">
+        <div class="float-right" style="width: 100px; float: left;">
+            <a class="btn" style="background-color: #C3A0E5" href="{{ route('phrase.index') }}"> Cancelar</a>
+        </div>
+        <div class="box-footer mt20">
+            <button type="submit" class="btn" style="background-color: #C3A0E5">Enviar</button>
+        </div>
     </div>
 </div>
