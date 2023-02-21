@@ -14,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //don't go to login page automatically if guest
+        //$this->middleware('auth');
     }
 
     /**
