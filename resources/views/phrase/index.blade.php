@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card" style="margin-bottom:0.5rem; padding-bottom:0.5rem">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
@@ -18,7 +18,7 @@
 
                             @can('admin-access')                            
                              <div class="float-right">
-                                <a href="{{ route('phrase.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('phrase.create') }}" class="btn btn-sm float-right"  data-placement="left" style="background-color: #E7CEF6">
                                   {{ __('Crear Nueva Frase') }}
                                 </a>
                               </div>
@@ -30,52 +30,28 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    <div class= "containerBook">    
+                    
+                        @foreach ($phrases as $phrase)
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        {{-- <th>No</th> --}}
-                                        
-										<th>Autor</th>
-										<th>Frase</th>
-										<th>Imagen</th>
-                                        @can('admin-access')
-										<th>Slider (1-sí, 0-no)</th>
-                                        @endcan
+                        <div style="width: 30rem;">
+                            <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
+                                
+                                <a href="{{ route('phrase.show',$phrase->id) }}"><img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="padding:0.5rem;"></a>
+                                @can('admin-access')
+                                <a class="btn btn-sm " href="{{ route('phrase.edit',$phrase->id) }}" style="background-color: #E7CEF6"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm" style="background-color: #C3A0E5"><i class="fa fa-fw fa-trash"></i> Borrar</button>
+                                @endcan
+                            </form>
+                            
+                            </div>
 
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($phrases as $phrase)
-                                        <tr>
-                                            {{-- <td>{{ ++$i }}</td> --}}
-                                            
-											<td>{{ $phrase->author }}</td>
-											<td>{{ $phrase->phrase }}</td>
-											<td>{{ $phrase->image }}</td>
-                                            @can('admin-access')
-											<td>{{ $phrase->is_onslider }}</td>
-                                            @endcan
-                                            @can('admin-access')
-                                            <td>
-                                                <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('phrase.show',$phrase->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('phrase.edit',$phrase->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
-                                                </form>
-                                            </td>
-                                            @endcan
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                        @endforeach
+
                     </div>
+                
                 </div>
                 {!! $phrases->links('pagination::bootstrap-4') !!}
             </div>

@@ -12,10 +12,9 @@
                     <div class="card-header">
                         <div class="float-left">
                             <span class="card-title">Mostrar Frase</span>
-                            <span class="card-title">Mostrar Frase</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('phrase.index') }}"> Volver</a>
+                            <a class="btn" href="{{ route('phrase.index') }}" style="background-color: #C3A0E5"> Volver</a>
                         </div>
                     </div>
 
@@ -23,22 +22,19 @@
                         
                         <div class="form-group">
                             <strong>Autor:</strong>
-                            <strong>Autor:</strong>
                             {{ $phrase->author }}
                         </div>
                         <div class="form-group">
-                            <strong>Frase:</strong>
                             <strong>Frase:</strong>
                             {{ $phrase->phrase }}
                         </div>
                         <div class="form-group">
                             <strong>Imagen:</strong>
-                            <strong>Imagen:</strong>
-                            {{ $phrase->image }}
+                            <img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="width: 20rem;">
                         </div>
                         @can('admin-access')
                         <div class="form-group">
-                            <strong>Slider (1-yes, 0-no):</strong>
+                            <strong>Slider (1-sí, 0-no):</strong>
                             {{ $phrase->is_onslider }}
                         </div>
                         @endcan
