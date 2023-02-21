@@ -37,17 +37,33 @@
 {{-- SLIDER  --}}
 
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      @foreach($phrases as $index => $phrase)
+        @if($index == 0)
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$index}}" class="active" aria-current="true" aria-label="Slide {{$index}}"></button>
+        @else
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
+        @endif
+      @endforeach
+
+      
+      {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> --}}
     </div>
 
     <div class="carousel-inner">
 
-      @foreach($phrases as $phrase)
-      <div class="carousel-item active">
-        <img src="{{$phrase->image}}" class="img" alt="phrase">
+      @foreach($phrases as $index => $phrase)
+        @if($index == 0)
+        <div class="carousel-item active">
+          <img src="{{$phrase->image}}" class="img" alt="{{$phrase->phrase}}">
+        </div>
+        @endif
+      <div class="carousel-item ">
+        <img src="{{$phrase->image}}" class="img" alt="{{$phrase->phrase}}">
       </div>
       @endforeach
 
