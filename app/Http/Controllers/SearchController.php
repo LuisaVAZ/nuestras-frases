@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\Phrase;
+use App\Models\search;
 
  class SearchController extends Controller
  {
@@ -13,16 +13,20 @@ use App\Models\Phrase;
           /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
-    {
+    // public function index(Request $request)
+    // {
              
-        $author = $request->get('buscarpor');
+    //     $author = $request->get('buscarpor');
 
-        $phrases = phrases::where('author','like','Nuevo');
+    //     $phrases = Phrase::where('author','like','%$author%')->get();
         
-        return view('home', (compact('phrase')));
-    }
-    /**
+    //     return view('home', (compact('phrases')));
+    // }
+
+                 /**
+        * Display a listing of the resource.
+        */
+           /**
      * Show the form for creating a new resource.
      */
     public function create(): Response

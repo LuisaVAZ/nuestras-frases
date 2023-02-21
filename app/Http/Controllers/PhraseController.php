@@ -106,4 +106,15 @@ class PhraseController extends Controller
         return redirect()->route('phrase.index')
             ->with('success', 'Phrase deleted successfully');
     }
+
+    public function search(Request $request)
+    {
+             
+        $author = $request->get('buscarpor');
+
+        $phrases = Phrase::where('author','like','%$author%')->get();
+        
+        return view('home', (compact('phrases')));
+    }
+
 }
