@@ -43,9 +43,11 @@ height: $height;
     justify-content: center;
     background-color:#C3A0E5;
     padding: 2rem;
-    margin-right:1rem;
+    // margin-right:1rem;
     border-radius: 20px;
-    width: 90%;
+    width: 100%;
+    margin-right: 100%;
+    margin-left:0;
 }
 
 
@@ -54,10 +56,11 @@ height: $height;
     justify-content: center;
 }
 
-.img {
-    height: 8rem;
+img {
+    height: 15rem;
     width: auto;
     border-radius: 20px;
+    justify-self: center;
 }
 .button {
     display: flex;
@@ -83,3 +86,4 @@ height: $height;
     margin-top: 3rem;
     justify-items: center;
   }
+

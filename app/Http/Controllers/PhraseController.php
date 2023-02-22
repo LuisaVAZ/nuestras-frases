@@ -67,7 +67,7 @@ class PhraseController extends Controller
         $phrase = Phrase::create($request->all());
 
         return redirect()->route('phrase.index')
-            ->with('success', 'Phrase created successfully.');
+            ->with('success', 'Frase creada con éxito.');
     }
 
     /**
@@ -110,7 +110,7 @@ class PhraseController extends Controller
         $phrase->update($request->all());
 
         return redirect()->route('phrase.index')
-            ->with('success', 'Phrase updated successfully');
+            ->with('success', 'Frase editada con éxito.');
     }
 
     /**
@@ -123,6 +123,6 @@ class PhraseController extends Controller
         $phrase = Phrase::find($id)->delete();
 
         return redirect()->route('phrase.index')
-            ->with('success', 'Phrase deleted successfully');
+            ->with('success', 'Frase borrada con éxito.');
     }
 }
