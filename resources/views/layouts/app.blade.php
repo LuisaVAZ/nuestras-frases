@@ -28,7 +28,7 @@
                  </a>
                                         {{-- //aqui mi código de búsqueda --}}
 
-                                            <form action="{{ route('phrase.index') }}" method="GET">
+                            <form action="{{ route('phrase.index') }}" method="GET">
                             <div class="btn-group">
                                 <input type="text" name="buscarpor" placeholder="Buscar por Autor" size=30 style="width:300px" aria-label="buscarpor" class="form-control">
                                 <input type="submit" value="Buscar">

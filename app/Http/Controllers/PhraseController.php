@@ -140,7 +140,7 @@ class PhraseController extends Controller
      public function search(Request $request)
      {
          $buscarpor = $request->buscarpor;
-        $phrases = Phrase::where('author','like','%$author%')->paginate(2);
+         $phrases = Phrase::where('author','like','%$author%')->paginate(2);
          return view('phrase.index', compact('phrases'))
         ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
 

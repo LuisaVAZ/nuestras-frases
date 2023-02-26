@@ -34,22 +34,29 @@
                     
                         @foreach ($phrases as $phrase)
 
-                        <div style="width: 30rem;">
-                            <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
+                            <div style="width: 30rem;">
+                                <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
                                 
-                                <a href="{{ route('phrase.show',$phrase->id) }}"><img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="padding:0.5rem;"></a>
-                                @can('admin-access')
-                                <a class="btn btn-sm " href="{{ route('phrase.edit',$phrase->id) }}" style="background-color: #E7CEF6"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm" style="background-color: #C3A0E5"><i class="fa fa-fw fa-trash"></i> Borrar</button>
-                                @endcan
-                            </form>
-                            
-                            </div>
+                                    <a href="{{ route('phrase.show',$phrase->id) }}"><img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="padding:0.5rem;"></a>
+                                    @can('admin-access')
+                                    <a class="btn btn-sm " href="{{ route('phrase.edit',$phrase->id) }}" style="background-color: #E7CEF6"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm" style="background-color: #C3A0E5"><i class="fa fa-fw fa-trash"></i> Borrar</button>
+                                    @endcan
+                                </form>
+                             </div>
 
                         @endforeach
+            {{-- inicio codigo --}}
+                
+              @if ($buscarpor="author")
+                   <a href="{{ route('phrase.search',$phrase->author) }}"></a>
+               @else
+                 echo "Autor no encontrado";
+             @endif
 
+           {{-- fin mi codigo   --}}
                     </div>
                 
                 </div>

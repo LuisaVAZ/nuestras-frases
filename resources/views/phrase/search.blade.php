@@ -1,60 +1,40 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Buscar
-@endsection
-
 @section('content')
-    <div class="container-fluid">
+    <section class="content container-fluid">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="card" style="margin-bottom:0.5rem; padding-bottom:0.5rem">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Frases') }}
-                            </span>
-
-                            @can('admin-access')                            
-                             <div class="float-right">
-                                <a href="{{ route('phrase.create') }}" class="btn btn-sm float-right"  data-placement="left" style="background-color: #E7CEF6">
-                                  {{ __('Crear Nueva Frase') }}
-                                </a>
-                              </div>
-                            @endcan  
+                        <div class="float-left">
+                            <span class="card-title">Frase por autor</span>
+                        </div>
+                        <div class="float-right">
+                            <a class="btn" href="{{ route('phrase.index') }}" style="background-color: #C3A0E5"> Volver</a>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
+
+                    <div class="card-body">
+                        
+                        <div class="form-group">
+                            <strong>Autor:</strong>
+                            {{ $phrase->author }}
                         </div>
-                    @endif
-                    <div class= "containerBook">    
-                    
-                        @foreach ($phrases as $phrase)
-
-                        <div style="width: 30rem;">
-                            <form action="{{ route('phrase.destroy',$phrase->id) }}" method="POST">
-                                
-                                <a href="{{ route('phrase.show',$phrase->id) }}"><img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="padding:0.5rem;"></a>
-                                @can('admin-access')
-                                <a class="btn btn-sm " href="{{ route('phrase.edit',$phrase->id) }}" style="background-color: #E7CEF6"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm" style="background-color: #C3A0E5"><i class="fa fa-fw fa-trash"></i> Borrar</button>
-                                @endcan
-                            </form>
-                            
-                            </div>
-
-                        @endforeach
+                        <div class="form-group">
+                            <strong>Frase:</strong>
+                            {{ $phrase->phrase }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Imagen:</strong>
+                            <img src= "{{ $phrase->image }}" class="card-img-top" alt="{{ $phrase->phrase }}" style="width: 20rem;">
+                        </div>
+                        @can('admin-access')
+                        <div class="form-group">
+                            <strong>Slider (1-sí, 0-no):</strong>
+                            {{ $phrase->is_onslider }}
+                        </div>
+                        @endcan
 
                     </div>
-                
                 </div>
-                {!! $phrases->links('pagination::bootstrap-4') !!}
             </div>
-        </div>
-    </div>
-@endsection
