@@ -34,15 +34,16 @@ class PhraseController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index()
-    {
-        $phrases = Phrase::paginate(2);
+      public function index()
+      {
+          $phrases = Phrase::paginate(2);
 
         return view('phrase.index', compact('phrases'))
-            ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+             ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+     }
+    
 
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -125,4 +126,24 @@ class PhraseController extends Controller
         return redirect()->route('phrase.index')
             ->with('success', 'Frase borrada con éxito.');
     }
+
+    // public function search(Request $request, $author)
+    // {
+             
+    //     $author = $request->get('$author');
+
+    //     $phrase = Phrase::where('author','like','%$author%')->get();
+        
+    //     return view('home', (compact('phrase')));
+    // }
+
+     public function search(Request $request)
+     {
+         $buscarpor = $request->buscarpor;
+        $phrases = Phrase::where('author','like','%$author%')->paginate(2);
+         return view('phrase.index', compact('phrases'))
+        ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+
+     }
+
 }
