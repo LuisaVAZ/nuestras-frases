@@ -27,13 +27,14 @@
 
                  </a>
                                         {{-- //aqui mi código de búsqueda --}}
-
-                            <form action="{{ route('phrase.index') }}" method="GET">
+                     <div class="container">
+                             <form action="{{ route('phrase.index') }}" method="GET">
                             <div class="btn-group">
-                                <input type="text" name="buscarpor" placeholder="Buscar por Autor" size=30 style="width:300px" aria-label="buscarpor" class="form-control">
-                                <input type="submit" value="Buscar">
+                                <input type="text" name="buscarpor" placeholder="Buscar por Autor" size=30 style="width:200px" aria-label="buscarpor" class="form-control" id="buscarpor">
+                                <input type="submit" value="Buscar" class="bottom" >
                             </div>
-                        </form>
+                        </form> 
+                    </div>
                     
                         {{-- //hasta aqui mi código de búsqueda --}}
                     

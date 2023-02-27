@@ -13,9 +13,13 @@
 
 @section('content')
 
+
+
 <div id="explanation-container">
     <div class="explanation"> ¡Que nada te pare! Aquí tienes frases con palabras de apoyo y de ánimo de lo más especiales, que te motivarán y te inspirarán siempre que lo necesites en tu vida. ¡Guárdalas dando click a la estrella para poder recordarlas luego!</div>
 </div>
+  
+
 {{-- SLIDER  --}}
 
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">

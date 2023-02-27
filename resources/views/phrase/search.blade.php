@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+{{-- @section('template_title')
+    {{ $phrase->author ?? 'Show Phrase' }}
+@endsection --}}
+
 @section('content')
     <section class="content container-fluid">
         <div class="row">

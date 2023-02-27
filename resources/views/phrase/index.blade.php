@@ -48,13 +48,15 @@
                              </div>
 
                         @endforeach
+                                                         
+                               
             {{-- inicio codigo --}}
                 
-              @if ($buscarpor="author")
-                   <a href="{{ route('phrase.search',$phrase->author) }}"></a>
-               @else
-                 echo "Autor no encontrado";
-             @endif
+             @if(count($phrases)<=0)
+               <tr>
+                    <td colspan="8"><h1>Autor no encontrado</h1></td>
+               </tr>             
+             @endif  
 
            {{-- fin mi codigo   --}}
                     </div>

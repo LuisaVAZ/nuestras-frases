@@ -34,15 +34,24 @@ class PhraseController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-      public function index()
-      {
-          $phrases = Phrase::paginate(2);
+    //   public function index()
+    //   {
+    //       $phrases = Phrase::paginate(2);
 
-        return view('phrase.index', compact('phrases'))
-             ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
-     }
+    //     return view('phrase.index', compact('phrases'))
+    //          ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+    //  }
     
+     public function index(Request $request)
+     {
 
+        $buscarpor =trim($request->get('buscarpor'));
+        $phrases = Phrase::where('author','like','%'.$buscarpor.'%')->paginate(2);
+
+       return view('phrase.index', compact('phrases','buscarpor'))
+            ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+    }
+   
     
     /**
      * Show the form for creating a new resource.
@@ -137,13 +146,13 @@ class PhraseController extends Controller
     //     return view('home', (compact('phrase')));
     // }
 
-     public function search(Request $request)
-     {
-         $buscarpor = $request->buscarpor;
-         $phrases = Phrase::where('author','like','%$author%')->paginate(2);
-         return view('phrase.index', compact('phrases'))
-        ->with('i', (request()->input('page', 1) - 1) * $phrases->perPage());
+    //  public function search(Request $request)
+    //  {
+    //     if(isset($request->buscarpor)){
+    //         $phrase = Phrase::search($request);
+    //              }
+    //     return view('phrase.index', compact('phrase')); 
 
-     }
+    //  }
 
 }
