@@ -12,42 +12,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Estado') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('Estás logead@!') }}
-                </div>
-            </div> 
-        </div>
-    </div>
-</div>
 <div id="explanation-container">
     <div class="explanation"> ¡Que nada te pare! Aquí tienes frases con palabras de apoyo y de ánimo de lo más especiales, que te motivarán y te inspirarán siempre que lo necesites en tu vida. ¡Guárdalas dando click a la estrella para poder recordarlas luego!</div>
 </div>
 {{-- SLIDER  --}}
 
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      @foreach($phrases as $index => $phrase)
+        @if($index == 0)
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$index}}" class="active" aria-current="true" aria-label="Slide {{$index}}"></button>
+        @else
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$index}}" aria-label="Slide {{$index}}"></button>
+        @endif
+      @endforeach
+
+      
+      {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> --}}
     </div>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="margin-right:auto;">
 
-      @foreach($phrases as $phrase)
-      <div class="carousel-item active">
-        <img src="{{$phrase->image}}" class="img" alt="phrase">
+      @foreach($phrases as $index => $phrase)
+        @if($index == 0)
+        <div class="carousel-item active" style="margin-right:0; width:auto">
+          <img src="{{$phrase->image}}" class="img" alt="{{$phrase->phrase}}" >
+        </div>
+        @endif
+      <div class="carousel-item" style="margin-right:0;width:auto">
+        <img src="{{$phrase->image}}" class="img" alt="{{$phrase->phrase}}" >
       </div>
       @endforeach
 
