@@ -37,6 +37,11 @@ class Phrase extends Model
      */
     protected $fillable = ['author','phrase','image','is_onslider'];
 
-
+  //   function search (Request $request)
+  //   {
+  //     $phrases = Phrase::where('author','like','%'.$request->buscarpor.'%')->paginate(2);
+  //     return $phrases;
+  // }
+       
 
 }
