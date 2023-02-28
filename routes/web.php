@@ -35,3 +35,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::resource('phrase', PhraseController::class);
 
 Route::get('/phrases.index', [PhraseController::class, 'index']);
+
+Route::get('/phrases.search', [PhraseController::class, 'search']);
